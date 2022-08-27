@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 7px;
+}
+
+@media(max-width: 1050px) {
+    html {
+        font-size: 5px;
+    }
+}
+
+@media(max-width: 770px) {
+    html {
+        font-size: 3px;
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Bitter', serif;
+    background-image: url(img/1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.page-content {
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+header h1 {
+    font-size: 5rem;
+    color: #89c347;
+    margin: 6rem 0 1.3rem;
+    letter-spacing: .5rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.input-group i {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: 3rem;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+.input-group input {
+    width: 60rem;
+    padding: 1.3rem;
+    border: 0;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: .2rem solid #89c347;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.input-group input::placeholder {
+    color: #fff;
+}
+
+.error {
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+main  {
+    text-align: center;
+}
+
+.city {
+    font-size: 3rem;
+    letter-spacing: .3rem;
+    border-bottom: .1rem solid #89c347;
+}
+
+.celcius {
+    font-size: 5rem;
+    letter-spacing: 1.4rem;
+}
+
+.desc-img {
+    width: 18rem;
+    border-bottom: .2rem solid #89c347;
+}
+
+.desc,
+.wind,
+.humidity {
+    font-style: italic;
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: .3rem;
+    margin-bottom: .5rem;
+}
+
+.minmax {
+    font-size: 1.7rem;
+    letter-spacing: .3rem;
+}
+
+/* forecast */
+#forecast {
+    width: 90rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: .2rem;
+    margin-bottom: 4rem;
+}
+
+#forecast .day {
+    font-size: 1.5rem;
+}
+
+#forecast .day:not(:last-child) {
+    padding-right: 3rem;
+    border-right: .1rem solid #89c347;
+}
+
+.fc-date {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+#forecast img {
+    width: 10rem;
+}
