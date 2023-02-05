@@ -17,16 +17,19 @@ It contains:
 
 
 ### The view of the site after a search
-<div style="display: flex; justify-content: space-between;">
-    <img width="48%" src="./site-images/false%20search.jpg"></img>
-    <img width="48%" src="./site-images/search2.jpg"></img>
-</div>
 
-- After a search, if the user entered an invalid city the site gives an error. (first img)
+##### False Search
+<img src="./site-images/false%20search.jpg"></img>
+
+##### Correct Search
+<img  src="./site-images/search2.jpg"></img>
+
+
+- After a search, if the user entered an invalid city the site gives an error.
 
 - After a search, if it is a real city the site takes current weather condition data and 5 day weather forecast data of the city from openweathermap api.
 
-- It also takes an image of the city from pexels api and makes it background image. (second img)
+- It also takes an image of the city from pexels api and makes it background image.
 
 ### Mobile view
 
