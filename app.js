@@ -1,4 +1,6 @@
-const api_key = "dd90d5571646f76c75449e9e171633f8";
+const open_weather_map_api_key = "dd90d5571646f76c75449e9e171633f8";
+const pexels_api_key = "gEqMhHCLatGJ0PcwAOcVW6Rzi21XRK5446PpCNaXEjQkkXBMD4hNjhBY";
+const body = document.querySelector("body");
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const input = document.querySelector(".input-group input");
 const searchBtn = document.querySelector(".input-group i");
@@ -12,8 +14,89 @@ const humidity = document.querySelector(".humidity");
 const descImg = document.querySelector(".desc-img");
 const minmax = document.querySelector(".minmax");
 const forecast = document.querySelector("#forecast");
+const wf_cities = document.querySelector(".wf-cities");
+const worldwide_cities = ["New York", "London", "Istanbul", "Berlin", "Paris", "Rome", "Barcelona", "Sydney"];
+const wf_cities_imgs = [];
 
+window.addEventListener("load", () => {
+    getBgImageForWF();    
+})
 
+const getBackgroundImage = async (place) => {
+    const res = await fetch(
+        `https://api.pexels.com/v1/search?per_page=20&size=small&query=${place}`,
+        {
+        headers: {
+            Authorization: pexels_api_key,
+        },
+        }
+    );
+    const responseJson = await res.json();
+    if(responseJson.photos.length>0) {
+        const number = getRandomNumber(responseJson.photos.length); 
+        body.style.backgroundImage = `url("${responseJson.photos[number].src.original}")`
+    }
+
+}
+
+const getBgImageForWF = async () => {
+    for(let city of worldwide_cities) {
+        const res = await fetch(
+            `https://api.pexels.com/v1/search?per_page=20&size=small&query=${city}`,
+            {
+            headers: {
+                Authorization: pexels_api_key,
+            },
+            }
+        );
+        const responseJson = await res.json();    
+        const number = getRandomNumber(responseJson.photos.length);
+        wf_cities_imgs.push({city: city, url: responseJson.photos[number].src.original})
+    }
+
+    getWorldwideForecast();
+}
+
+const getImageForWFCityItem = (place) => {
+    for(let img of wf_cities_imgs) {
+        if(img.city==place) {
+            return img.url;
+        }
+    }
+}
+
+const getWorldwideForecast = async () => {
+    wf_cities.innerHTML = "";
+    for(let city of worldwide_cities) {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${open_weather_map_api_key}&units=metric`)
+        const data = await response.json();
+
+        let li = `
+            <li class="wf-city-item wf-city-item-${worldwide_cities.indexOf(city)}" onclick="searchFromWF(this.children[0].children[0].children[0].innerHTML)" style="background-image: url('${getImageForWFCityItem(city)}');">
+                <div class="wf-city-wrapper">
+                    <div class="wf-city-left">
+                        <p class="wf-city-name">${city}</p>
+                        <p class="wf-city-temp">${Math.floor(data.main.temp)}°C</p>
+                    </div>
+                    <div class="wf-city-right">
+                        <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" class="wf-city-icon">
+                    </div>
+                </div>
+            </li>
+        `;
+
+        wf_cities.insertAdjacentHTML("beforeend", li)
+    }
+}
+
+const searchFromWF = (place) => {
+    input.value = place;
+    searchBtn.click();
+}
+
+const getRandomNumber = (range) => {
+    return Math.floor(Math.random() * range);
+}
 
 searchBtn.addEventListener("click", async function findCity() {
     try{
@@ -22,12 +105,15 @@ searchBtn.addEventListener("click", async function findCity() {
         const searchedCity = input.value;
         input.value = "";
         forecast.innerHTML = "";
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${api_key}&units=metric`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${open_weather_map_api_key}&units=metric`);
         
-        if(!response.ok)
-        throw new Error("Please enter a valid city!!!");
+        if(!response.ok) {
+            body.style.backgroundImage = "url('https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg')"
+            throw new Error("Please enter a valid city!!!");
+        }
+        getBackgroundImage(searchedCity);
         const data = await response.json();
-        
+        console.log(data)
         
         city.innerHTML = `${data.name} / ${data.sys.country}`;
         celcius.innerHTML = `${Math.round(data.main.temp)}°C`;
@@ -39,7 +125,7 @@ searchBtn.addEventListener("click", async function findCity() {
   
   
   
-        const responsefc = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchedCity}&appid=${api_key}&units=metric`);
+        const responsefc = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchedCity}&appid=${open_weather_map_api_key}&units=metric`);
         const datafc = await responsefc.json();
         console.log(datafc.list);
 
