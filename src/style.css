@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 7px;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Bitter', serif;
+    background-image: url("https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.page-content {
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+header h1 {
+    font-size: 5rem;
+    color: #89c347;
+    margin: 6rem 0 1.3rem;
+    letter-spacing: .5rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.input-group i {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-size: 3rem;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+.input-group input {
+    width: 60rem;
+    padding: 1.3rem;
+    border: 0;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-bottom: .2rem solid #89c347;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.input-group input::placeholder {
+    color: #fff;
+}
+
+.error {
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+main  {
+    text-align: center;
+}
+
+.city {
+    font-size: 3rem;
+    letter-spacing: .3rem;
+    border-bottom: .1rem solid #89c347;
+}
+
+.celcius {
+    font-size: 5rem;
+    letter-spacing: 1.4rem;
+}
+
+.desc-img {
+    width: 18rem;
+    border-bottom: .2rem solid #89c347;
+}
+
+.desc,
+.wind,
+.humidity {
+    font-style: italic;
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: .3rem;
+    margin-bottom: .5rem;
+}
+
+.minmax {
+    font-size: 1.7rem;
+    letter-spacing: .3rem;
+}
+
+/* forecast */
+#forecast {
+    width: 90rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: .2rem;
+    margin-bottom: 6rem;
+}
+
+#forecast .day {
+    font-size: 1.5rem;
+}
+
+#forecast .day:not(:last-child) {
+    padding-right: 3rem;
+    border-right: .1rem solid #89c347;
+}
+
+.fc-date {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+#forecast img {
+    width: 10rem;
+}
+
+/* worldwide-forecast */
+#worldwide-forecast {
+    width: 80%;
+    margin-bottom: 5rem;
+}
+.wf-title {
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: .14rem;
+    padding: .7rem;
+    border-bottom: .2rem solid #89c347;
+    margin-bottom: 3rem;
+}
+
+.wf-cities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+li[class^="wf-city-item"] {
+    /* background-image: url("https://images.pexels.com/photos/631522/pexels-photo-631522.jpeg"); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 4rem;
+    /* height: 28rem; */
+    /* width: 44rem; */
+    cursor: pointer;
+}
+
+.wf-city-wrapper {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+}
+
+.wf-city-left {
+    text-align: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: .3rem;
+}
+
+.wf-city-name {
+    letter-spacing: .1rem;
+}
+
+.wf-city-temp {
+    margin-top: 3rem;
+    letter-spacing: .8rem;
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+.wf-city-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.wf-city-icon {
+    width: 100%;
+}
+
+@media(max-width: 1050px) {
+    html {
+        font-size: 7px;
+    }
+
+    .wf-cities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    li[class^="wf-city-item"] {
+        width: 100%;
+    }
+}
+
+@media(max-width: 770px) {
+    html {
+        font-size: 4px;
+    }
+
+    .wf-cities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    li[class^="wf-city-item"] {
+        width: 100%;
+        height: auto;
+    }
+}

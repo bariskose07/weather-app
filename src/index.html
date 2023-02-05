@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="page-content">
+        <header>
+            <h1>Weather App</h1>
+            <div class="input-group">
+                <input type="text" placeholder="Search for a city...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </header>
+
+        <main>
+            <p class="error"></p>
+            <div class="infos">
+                <div class="city">
+                    <h4></h4>
+                </div>
+                <img class="desc-img" src="" alt="">
+                <div class="celcius"><h1></h1>
+                </div>
+                <p class="desc"></p>
+                <p class="wind"></p>
+                <p class="humidity"></p>
+                <div class="minmax"><h5></h5></div>
+            </div>
+        </main>
+
+        <section id="forecast">
+            <!-- <div class="day">
+                <div class="fc-info">
+                    <img src="http://openweathermap.org/img/wn/01n@2x.png" alt="">
+                    <div class="fc-temp">37°C</div>
+                    <div class="fc-desc">Clouds</div>
+                </div>
+                <div class="fc-date">Aug 25, 2022</div>
+            </div>
+
+            <div class="day">
+                <div class="fc-info">
+                    <img src="http://openweathermap.org/img/wn/09n@2x.png" alt="">
+                    <div class="forecast-temp">37°C</div>
+                    <div class="forecast-desc">Clouds</div>
+                </div>
+                <div class="fc-date">Aug 25, 2022</div>
+            </div>
+
+            <div class="day">
+                <div class="fc-info">
+                    <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="">
+                    <div class="forecast-temp">37°C</div>
+                    <div class="forecast-desc">Clouds</div>
+                </div>
+                <div class="fc-date">Aug 25, 2022</div>
+            </div>
+
+            <div class="day">
+                <div class="fc-info">
+                    <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
+                    <div class="forecast-temp">37°C</div>
+                    <div class="forecast-desc">Clouds</div>
+                </div>
+                <div class="fc-date">Aug 25, 2022</div>
+            </div>
+
+            <div class="day">
+                <div class="fc-info">
+                    <img src="http://openweathermap.org/img/wn/02n@2x.png" alt="">
+                    <div class="forecast-temp">37°C</div>
+                    <div class="forecast-desc">Clouds</div>
+                </div>
+                <div class="fc-date">Aug 25, 2022</div>
+            </div> -->
+        </section>
+
+        <section id="worldwide-forecast">
+            <h3 class="wf-title">Worldwide Weather Condition</h3>
+            <ul class="wf-cities">
+                
+            </ul>
+        </section>
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
