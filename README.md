@@ -11,9 +11,9 @@ It contains:
 
 - In default view, we have a header part that consists of a title and a search input to search any city we want to.
   
-- Then, we have worldwide weather condition part that provides with 8 cities current weather condition. Also, there is a background image for each of 8 cities that thanks to pexels api.
+- Then, we have worldwide weather condition part that provides with 8 cities' current weather condition. Also, there is a background image for each of 8 cities thanks to pexels api.
   
-- The site may take a while since the size of the images that are obtained from pexels api is large.
+- The site may take a while to load since the size of the images that are obtained from pexels api is large.
 
 
 ### The view of the site after a search
