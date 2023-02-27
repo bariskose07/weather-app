@@ -9,7 +9,7 @@ It contains:
 <img src="./site-images/default.jpg"></img>
 
 
-- In default view, we have a header part that consists of a title and a relocationsearch input to search any city we want to.
+- In default view, we have a header part that consists of a title and a search input to search any city we want to.
   
 - Then, we have worldwide weather condition part that provides with 8 cities current weather condition. Also, there is a background image for each of 8 cities that thanks to pexels api.
   
